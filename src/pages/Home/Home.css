@@ -1,0 +1,45 @@
+
+.header {
+    height: 70vh;
+    background: url("/images/header-image.jpg");
+}
+
+.section {
+    height: 30vh;
+}
+
+.center {
+    height: 100%;
+}
+
+.mt-50{
+    margin-top: 50px !important;
+}
+
+.homeTxt {
+    color: white;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.homeMessage {
+    text-align: center;
+}
+
+.homeBtn {
+    border: solid 2px white;
+    padding: 20px;
+    width: 185px;
+    display: inline-block;
+}
+
+.homeBtn:hover{
+    background-color: rgb(222, 222, 222, 0.2);
+    box-shadow: 1px 2px 2px #C1C2C7;
+}
+
+.homeBtnTxt {
+   color : white;
+   font-size: 30px;
+   font-weight: 400;
+}

@@ -1,0 +1,30 @@
+{
+  "name": "react-js-buy",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "apollo-boost": "^0.3.1",
+    "apollo-link-context": "^1.0.17",
+    "graphql": "^14.3.0",
+    "graphql-tag": "^2.10.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-addons-create-fragment": "^15.6.2",
+    "react-apollo": "^2.5.5",
+    "react-art": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0"
+  },
+  "devDependencies": {
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
