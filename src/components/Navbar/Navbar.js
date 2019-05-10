@@ -76,7 +76,9 @@ function NavBar(props) {
                         </Grid>
 
                         <Grid item md className={classes.center}>
-                            <Button size="large" color="inherit" onClick={props.openCustomerAuth}><span className="headerBtn">Login</span></Button>                            
+                            <Link className="headerLink" to="/login" onClick={props.close}>
+                                <Button size="large" color="inherit"><span className="headerBtn">Login</span></Button>
+                            </Link>
                             <IconButton color="inherit" onClick={props.click}> <ShoppingCartOutlined /> </IconButton>
                         </Grid>
 

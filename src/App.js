@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Shop from './pages/Shop';
+import Login from './pages/Login';
 import CustomerAuthWithMutation from './components/CustomerAuth';
 import PropTypes from 'prop-types';
 import { graphql, compose } from 'react-apollo';
@@ -193,6 +194,14 @@ class App extends Component {
                 removeLineItemInCart={this.removeLineItemInCart}
                 data={this.props.data}
               />}
+            />
+
+            <Route 
+            exact path="/login"
+            render={(props) => <Login {...props} 
+                        
+            />}
+            
             />
           </div>
 
