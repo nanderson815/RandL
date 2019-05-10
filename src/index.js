@@ -8,11 +8,13 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from 'react-apollo';
 import './app.css';
 
-const httpLink = createHttpLink({ uri: 'https://graphql.myshopify.com/api/graphql' })
+require('dotenv').config();
+
+const httpLink = createHttpLink({ uri: 'https://rose-and-liz.myshopify.com/api/graphql' })
 
 const middlewareLink = setContext(() => ({
   headers: {
-    'X-Shopify-Storefront-Access-Token': 'dd4d4dc146542ba7763305d71d1b3d38'
+    'X-Shopify-Storefront-Access-Token': process.env.REACT_APP_STOREFRONT_ACCESS_TOKEN
   }
 }))
 

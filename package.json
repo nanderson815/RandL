@@ -7,6 +7,7 @@
     "@material-ui/icons": "^3.0.2",
     "apollo-boost": "^0.3.1",
     "apollo-link-context": "^1.0.17",
+    "dotenv": "^8.0.0",
     "graphql": "^14.3.0",
     "graphql-tag": "^2.10.1",
     "prop-types": "^15.7.2",

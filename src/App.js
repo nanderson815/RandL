@@ -129,7 +129,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
     if (this.props.data.loading) {
       return <p>Loading ...</p>;
     }
