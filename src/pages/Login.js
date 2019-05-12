@@ -3,14 +3,51 @@ import { AUTH_TOKEN } from "../Constants";
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import gql from 'graphql-tag';
+import { graphql, compose } from 'react-apollo';
 
+
+
+
+const customerCreate = gql`
+  mutation customerCreate($input: CustomerCreateInput!) {
+    customerCreate(input: $input) {
+      userErrors {
+        field
+        message
+      }
+      customer {
+        id
+      }
+    }
+  }
+`;
+
+const customerAccessTokenCreate = gql`
+  mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
+    customerAccessTokenCreate(input: $input) {
+      userErrors {
+        field
+        message
+      }
+      customerAccessToken {
+        accessToken
+        expiresAt
+      }
+    }
+  }
+`;
 
 class Cart extends Component {
     state = {
         login: true, // switch between Login and SignUp
         email: '',
         password: '',
+        nonFieldErrorMessage: null,
+        emailErrorMessage: null,
+        passwordErrorMessage: null
     }
+
 
     onChangeHandler = (e) => {
         let field = e.target.name
@@ -18,6 +55,85 @@ class Cart extends Component {
             [field]: e.target.value
         })
     }
+
+    handleSubmit(email, password) {
+        this.resetErrorMessages();
+        if (!this.state.login) {
+            this.createCustomerAccount(email, password)
+        } else {
+            this.loginCustomerAccount(email, password)
+        }
+    }
+
+    resetInputFields() {
+        this.setState({
+            email: '',
+            password: ''
+        });
+    }
+
+    resetErrorMessages() {
+        this.setState({
+            nonFieldErrorMessage: null,
+            emailErrorMessage: null,
+            passwordErrorMessage: null
+        });
+    }
+
+    createCustomerAccount(email, password) {
+        const input = {
+            email: email,
+            password: password
+        }
+        this.props.customerCreate(
+            {
+                variables: { input }
+            }).then((res) => {
+                if (res.data.customerCreate.customer) {
+                    this.props.showAccountVerificationMessage();
+                } else {
+                    res.data.customerCreate.userErrors.forEach(function (error) {
+                        if (error.field) {
+                            this.setState({
+                                [error.field + "ErrorMessage"]: error.message
+                            });
+                        } else {
+                            this.setState({
+                                nonFieldErrorMessage: error.message
+                            });
+                        }
+                    }.bind(this));
+                }
+            });
+    }
+
+    loginCustomerAccount(email, password) {
+        const input = {
+            email: email,
+            password: password
+        }
+        this.props.customerAccessTokenCreate(
+            {
+                variables: { input }
+            }).then((res) => {
+                if (res.data.customerAccessTokenCreate.customerAccessToken) {
+                    this.props.associateCustomerCheckout(res.data.customerAccessTokenCreate.customerAccessToken.accessToken);
+                } else {
+                    res.data.customerAccessTokenCreate.userErrors.forEach(function (error) {
+                        if (error.field != null) {
+                            this.setState({
+                                [error.field + "ErrorMessage"]: error.message
+                            });
+                        } else {
+                            this.setState({
+                                nonFieldErrorMessage: error.message
+                            });
+                        }
+                    }.bind(this));
+                }
+            });
+    }
+
 
     render() {
         const { login, email, password } = this.state
@@ -34,7 +150,9 @@ class Cart extends Component {
 
                     <Grid item md={4}>
                         <h1>{login ? "Login to your Account" : "Sign Up"}</h1>
-
+                        {this.state.nonFieldErrorMessage &&
+                            <div className="error">{this.state.nonFieldErrorMessage}</div>
+                        }
                         <form>
                             <TextField
                                 id="outlined-email-input"
@@ -61,7 +179,7 @@ class Cart extends Component {
                                 onChange={this.onChangeHandler}
                             />
 
-                            <Button size="large" onClick={() => this._confirm()}>
+                            <Button size="large" onClick={() => this.handleSubmit(email, password)}>
                                 {login ? 'Login' : 'Create Account'}
                             </Button>
                             <Button size="large" onClick={() => this.setState({ login: !login })}>
@@ -74,13 +192,16 @@ class Cart extends Component {
             </div >
         )
     }
-    _confirm = async () => {
-        // ... you'll implement this 🔜
-    }
 
     _saveUserData = token => {
         sessionStorage.setItem(AUTH_TOKEN, token)
     }
 }
 
-export default Cart;
+
+const CartWithMutation = compose(
+    graphql(customerCreate, { name: "customerCreate" }),
+    graphql(customerAccessTokenCreate, { name: "customerAccessTokenCreate" })
+)(Cart);
+
+export default CartWithMutation;

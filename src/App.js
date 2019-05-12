@@ -154,7 +154,7 @@ class App extends Component {
           <ul className="App__nav">
             <li className="button App__customer-actions" onClick={this.openCustomerAuth} data-customer-type="new-customer">Create an Account</li>
           </ul>
-          
+
         </header>
 
         <Router>
@@ -195,12 +195,13 @@ class App extends Component {
               />}
             />
 
-            <Route 
-            exact path="/login"
-            render={(props) => <Login {...props} 
-                        
-            />}
-            
+            <Route
+              exact path="/login"
+              render={(props) => <Login {...props}
+                associateCustomerCheckout={this.associateCustomerCheckout}
+                showAccountVerificationMessage={this.showAccountVerificationMessage}
+              />}
+
             />
           </div>
 
