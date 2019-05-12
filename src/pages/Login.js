@@ -79,7 +79,7 @@ class Cart extends Component {
     }
 
     _saveUserData = token => {
-        localStorage.setItem(AUTH_TOKEN, token)
+        sessionStorage.setItem(AUTH_TOKEN, token)
     }
 }
 

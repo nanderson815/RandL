@@ -13,6 +13,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 
 import './Navbar.css';
+import { AUTH_TOKEN } from '../../Constants';
 
 
 const styles = {
@@ -37,7 +38,7 @@ const styles = {
 
 function NavBar(props) {
     const { classes } = props;
-
+    const authToken = sessionStorage.getItem(AUTH_TOKEN);
 
     let navbarClass = ''
     if (props.isTop) {
@@ -76,9 +77,24 @@ function NavBar(props) {
                         </Grid>
 
                         <Grid item md className={classes.center}>
-                            <Link className="headerLink" to="/login" onClick={props.close}>
-                                <Button size="large" color="inherit"><span className="headerBtn">Login</span></Button>
-                            </Link>
+
+                            {authToken ?
+                                <Button
+                                    size="large"
+                                    color="inherit"
+                                    onClick={() => {
+                                        sessionStorage.removeItem(AUTH_TOKEN)
+                                        this.props.history.push(`/`)
+                                    }}>
+                                    <span className="headerBtn">
+                                        Logout</span>
+                                </Button> 
+                                :
+                                <Link className="headerLink" to="/login" onClick={props.close}>
+                                    <Button size="large" color="inherit"><span className="headerBtn">Login</span></Button>
+                                </Link>
+                            }
+
                             <IconButton color="inherit" onClick={props.click}> <ShoppingCartOutlined /> </IconButton>
                         </Grid>
 
