@@ -5,7 +5,6 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Shop from './pages/Shop';
 import Login from './pages/Login';
-import CustomerAuthWithMutation from './components/CustomerAuth';
 import PropTypes from 'prop-types';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -142,20 +141,6 @@ class App extends Component {
           <p className={`Flash__message ${this.state.accountVerificationMessage ? 'Flash__message--open' : ''}`}>We have sent you an email, please click the link included to verify your email address</p>
         </div>
 
-        <CustomerAuthWithMutation
-          closeCustomerAuth={this.closeCustomerAuth}
-          isCustomerAuthOpen={this.state.isCustomerAuthOpen}
-          newCustomer={this.state.isNewCustomer}
-          associateCustomerCheckout={this.associateCustomerCheckout}
-          showAccountVerificationMessage={this.showAccountVerificationMessage}
-        />
-
-        <header className="App__header">
-          <ul className="App__nav">
-            <li className="button App__customer-actions" onClick={this.openCustomerAuth} data-customer-type="new-customer">Create an Account</li>
-          </ul>
-
-        </header>
 
         <Router>
 
