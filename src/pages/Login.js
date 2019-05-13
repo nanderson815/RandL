@@ -43,9 +43,7 @@ class Cart extends Component {
         login: true, // switch between Login and SignUp
         email: '',
         password: '',
-        nonFieldErrorMessage: null,
-        emailErrorMessage: null,
-        passwordErrorMessage: null
+        errorMessage: null,
     }
 
 
@@ -74,9 +72,7 @@ class Cart extends Component {
 
     resetErrorMessages() {
         this.setState({
-            nonFieldErrorMessage: null,
-            emailErrorMessage: null,
-            passwordErrorMessage: null
+            errorMessage: null,
         });
     }
 
@@ -89,17 +85,18 @@ class Cart extends Component {
             {
                 variables: { input }
             }).then((res) => {
+                console.log(res)
                 if (res.data.customerCreate.customer) {
                     this.props.showAccountVerificationMessage();
                 } else {
                     res.data.customerCreate.userErrors.forEach(function (error) {
                         if (error.field) {
                             this.setState({
-                                [error.field + "ErrorMessage"]: error.message
+                                errorMessage: error.message
                             });
                         } else {
                             this.setState({
-                                nonFieldErrorMessage: error.message
+                                errorMessage: error.message
                             });
                         }
                     }.bind(this));
@@ -116,17 +113,18 @@ class Cart extends Component {
             {
                 variables: { input }
             }).then((res) => {
+                console.log(res)
                 if (res.data.customerAccessTokenCreate.customerAccessToken) {
                     this.props.associateCustomerCheckout(res.data.customerAccessTokenCreate.customerAccessToken.accessToken);
                 } else {
                     res.data.customerAccessTokenCreate.userErrors.forEach(function (error) {
                         if (error.field != null) {
                             this.setState({
-                                [error.field + "ErrorMessage"]: error.message
+                                errorMessage: error.message
                             });
                         } else {
                             this.setState({
-                                nonFieldErrorMessage: error.message
+                                errorMessage: error.message
                             });
                         }
                     }.bind(this));
@@ -150,8 +148,8 @@ class Cart extends Component {
 
                     <Grid item md={4}>
                         <h1>{login ? "Login to your Account" : "Sign Up"}</h1>
-                        {this.state.nonFieldErrorMessage &&
-                            <div className="error">{this.state.nonFieldErrorMessage}</div>
+                        {this.state.errorMessage &&
+                            <div className="error">{this.state.errorMessage}</div>
                         }
                         <form>
                             <TextField
