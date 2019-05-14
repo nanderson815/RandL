@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import NavbarPanel from "./NavbarPanel";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import { withRouter } from 'react-router-dom';
 
 import './Navbar.css';
 import { AUTH_TOKEN } from '../../Constants';
@@ -41,11 +42,12 @@ function NavBar(props) {
     const authToken = sessionStorage.getItem(AUTH_TOKEN);
 
     let navbarClass = ''
-    if (props.isTop) {
+    if (props.isTop && props.history.location.pathname === "/") {
         navbarClass = classes.color
     } else {
         navbarClass = classes.scrolled
     }
+
 
     return (
         <div>
@@ -110,4 +112,4 @@ NavBar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NavBar);
+export default withRouter(withStyles(styles)(NavBar));

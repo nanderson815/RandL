@@ -38,7 +38,9 @@ const customerAccessTokenCreate = gql`
   }
 `;
 
+
 class Cart extends Component {
+
     state = {
         login: true, // switch between Login and SignUp
         email: '',
@@ -134,6 +136,7 @@ class Cart extends Component {
 
 
     render() {
+
         const { login, email, password } = this.state
         return (
             <div>

@@ -38,7 +38,6 @@ class App extends Component {
     this.handleCartClose = this.handleCartClose.bind(this);
     this.handleCartOpen = this.handleCartOpen.bind(this);
     this.openCustomerAuth = this.openCustomerAuth.bind(this);
-    this.closeCustomerAuth = this.closeCustomerAuth.bind(this);
     this.addVariantToCart = addVariantToCart.bind(this);
     this.updateLineItemInCart = updateLineItemInCart.bind(this);
     this.removeLineItemInCart = removeLineItemInCart.bind(this);
@@ -88,6 +87,7 @@ class App extends Component {
   handleCartClose() {
     this.setState({
       isCartOpen: false,
+      isOpen: false
     });
   }
 
@@ -114,11 +114,6 @@ class App extends Component {
     }, 5000);
   }
 
-  closeCustomerAuth() {
-    this.setState({
-      isCustomerAuthOpen: false,
-    });
-  }
 
   toggleNavbarPanel() {
     const isOpen = !this.state.isOpen;
