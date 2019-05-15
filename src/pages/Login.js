@@ -118,6 +118,7 @@ class Cart extends Component {
                 console.log(res)
                 if (res.data.customerAccessTokenCreate.customerAccessToken) {
                     this.props.associateCustomerCheckout(res.data.customerAccessTokenCreate.customerAccessToken.accessToken);
+                    this._saveUserData(res.data.customerAccessTokenCreate.customerAccessToken.accessToken)
                 } else {
                     res.data.customerAccessTokenCreate.userErrors.forEach(function (error) {
                         if (error.field != null) {
@@ -195,7 +196,8 @@ class Cart extends Component {
     }
 
     _saveUserData = token => {
-        sessionStorage.setItem(AUTH_TOKEN, token)
+        sessionStorage.setItem(AUTH_TOKEN, token);
+        this.props.history.push(`/`)
     }
 }
 
