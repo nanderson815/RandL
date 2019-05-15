@@ -75,7 +75,9 @@ function NavBar(props) {
                         </Grid>
 
                         <Grid item md className={classes.center}>
-                            <img className={`${classes.inline} headerLogo`} src="./images/r6.png" alt="Rose and Liz Logo" />
+                            <Link className="headerLink" to="/" onClick={props.close}>
+                                <img className={`${classes.inline} headerLogo`} src="./images/r6.png" alt="Rose and Liz Logo" />
+                            </Link>
                         </Grid>
 
                         <Grid item md className={classes.center}>
@@ -90,7 +92,7 @@ function NavBar(props) {
                                     }}>
                                     <span className="headerBtn">
                                         Logout</span>
-                                </Button> 
+                                </Button>
                                 :
                                 <Link className="headerLink" to="/login" onClick={props.close}>
                                     <Button size="large" color="inherit"><span className="headerBtn">Login</span></Button>

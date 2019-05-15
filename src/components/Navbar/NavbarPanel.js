@@ -23,14 +23,14 @@ const styles = theme => ({
 function NavbarPanel(props) {
     const { classes } = props;
 
-    const product = props.products[0];
+    const product = props.products[0].node;
     return (
         <Collapse in={props.isOpen} >
             <div className={classes.root}>
                 <Grid className={classes.cont} container spacing={24}>
                     <Grid item md={3} >
                         <h1 className={classes.text}>Featured</h1>
-                        <img src={product ? product.images[0].src : null} alt={product ? product.title : null} />
+                        <img src={product ? product.images.edges[0].node.src : null} alt={product ? product.title : null} />
                         <h2 className={classes.text}>{product ? product.title : null}</h2>
 
 

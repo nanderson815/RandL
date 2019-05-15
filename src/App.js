@@ -146,7 +146,7 @@ class App extends Component {
               click={() => this.setState({ isCartOpen: true })}
               toggle={this.toggleNavbarPanel}
               close={this.handleCartClose}
-              products={this.state.products}
+              products={this.props.data.shop.products.edges}
               openCustomerAuth={this.openCustomerAuth}
 
             />
