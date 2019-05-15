@@ -45,7 +45,9 @@ class Cart extends Component {
         login: true, // switch between Login and SignUp
         email: '',
         password: '',
-        errorMessage: null,
+        first: '',
+        last: '',
+        errorMessage: null
     }
 
 
@@ -138,7 +140,7 @@ class Cart extends Component {
 
     render() {
 
-        const { login, email, password } = this.state
+        const { login, email, password, first, last } = this.state
         return (
             <div>
                 <Grid
@@ -147,7 +149,7 @@ class Cart extends Component {
                     direction="column"
                     alignItems="center"
                     justify="center"
-                    style={{ minHeight: '50vh' }}
+                    style={{ minHeight: '75vh' }}
                 >
 
                     <Grid item md={4}>
@@ -156,6 +158,29 @@ class Cart extends Component {
                             <div className="error">{this.state.errorMessage}</div>
                         }
                         <form>
+                            {login ? null : <div><TextField
+                                id="outlined-first-input"
+                                style={{ width: "100%" }}
+                                label="First Name"
+                                type="test"
+                                value={first}
+                                name="first"
+                                margin="normal"
+                                variant="outlined"
+                                onChange={this.onChangeHandler}
+                            />
+                                <TextField
+                                    id="outlined-last-input"
+                                    style={{ width: "100%" }}
+                                    label="Last Name"
+                                    type="text"
+                                    value={last}
+                                    name="last"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.onChangeHandler}
+                                /> </div>}
+
                             <TextField
                                 id="outlined-email-input"
                                 style={{ width: "100%" }}
