@@ -58,10 +58,10 @@ class Cart extends Component {
         })
     }
 
-    handleSubmit(email, password) {
+    handleSubmit(email, password, first, last) {
         this.resetErrorMessages();
         if (!this.state.login) {
-            this.createCustomerAccount(email, password)
+            this.createCustomerAccount(email, password, first, last)
         } else {
             this.loginCustomerAccount(email, password)
         }
@@ -80,10 +80,12 @@ class Cart extends Component {
         });
     }
 
-    createCustomerAccount(email, password) {
+    createCustomerAccount(email, password, first, last) {
         const input = {
             email: email,
-            password: password
+            password: password,
+            firstName: first,
+            lastName: last
         }
         this.props.customerCreate(
             {
@@ -206,7 +208,7 @@ class Cart extends Component {
                                 onChange={this.onChangeHandler}
                             />
 
-                            <Button size="large" onClick={() => this.handleSubmit(email, password)}>
+                            <Button size="large" onClick={() => this.handleSubmit(email, password, first, last)}>
                                 {login ? 'Login' : 'Create Account'}
                             </Button>
                             <Button size="large" onClick={() => this.setState({ login: !login })}>
