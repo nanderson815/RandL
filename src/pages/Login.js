@@ -93,7 +93,8 @@ class Cart extends Component {
             }).then((res) => {
                 console.log(res)
                 if (res.data.customerCreate.customer) {
-                    this.props.showAccountVerificationMessage();
+                    // this.props.showAccountVerificationMessage();
+                    this.loginCustomerAccount(email, password);
                 } else {
                     res.data.customerCreate.userErrors.forEach(function (error) {
                         if (error.field) {

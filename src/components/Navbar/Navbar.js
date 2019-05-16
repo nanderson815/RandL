@@ -88,7 +88,7 @@ function NavBar(props) {
                                     color="inherit"
                                     onClick={() => {
                                         sessionStorage.removeItem(AUTH_TOKEN)
-                                        this.props.history.push(`/`)
+                                        props.history.push(`/`)
                                     }}>
                                     <span className="headerBtn">
                                         Logout</span>
