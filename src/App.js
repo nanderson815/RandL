@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Shop from './pages/Shop';
 import Login from './pages/Login';
+import Account from './pages/Account';
 import PropTypes from 'prop-types';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -181,6 +182,14 @@ class App extends Component {
                 showAccountVerificationMessage={this.showAccountVerificationMessage}
               />}
 
+            />
+
+            <Route
+              exact path='/account'
+              render={(props) => <Account {...props}
+                client={this.props.client}
+                data={this.props.data}
+              />}
             />
           </div>
 

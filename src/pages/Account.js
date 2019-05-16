@@ -1,0 +1,48 @@
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import { AUTH_TOKEN } from '../Constants';
+import { Redirect } from 'react-router';
+
+
+const Account = (props) => {
+    const authToken = sessionStorage.getItem(AUTH_TOKEN);
+
+    if (authToken) {
+        return (
+            <div>
+                <Grid
+                    container
+                    spacing={0}
+                    direction="column"
+                    alignItems="center"
+                    justify="center"
+                    style={{ minHeight: '60vh' }}
+                >
+
+                    <Grid item>
+                        <h1>My Account</h1>
+                        <Button
+                            size="large"
+                            color="inherit"
+                            onClick={() => {
+                                sessionStorage.removeItem(AUTH_TOKEN);
+                                props.history.push(`/`);
+                            }}>
+                            <span className="headerBtn">
+                                Logout</span>
+                        </Button>
+                    </Grid>
+
+                </Grid>
+            </div>
+        )
+    } else {
+        return (
+            <Redirect to="/" />
+        );
+    }
+
+}
+
+export default Account;

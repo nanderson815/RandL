@@ -225,7 +225,7 @@ class Cart extends Component {
 
     _saveUserData = token => {
         sessionStorage.setItem(AUTH_TOKEN, token);
-        this.props.history.push(`/`)
+        this.props.history.push(`/account`)
     }
 }
 

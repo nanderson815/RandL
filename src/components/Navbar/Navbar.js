@@ -83,16 +83,9 @@ function NavBar(props) {
                         <Grid item md className={classes.center}>
 
                             {authToken ?
-                                <Button
-                                    size="large"
-                                    color="inherit"
-                                    onClick={() => {
-                                        sessionStorage.removeItem(AUTH_TOKEN);
-                                        props.history.push(`/`);
-                                    }}>
-                                    <span className="headerBtn">
-                                        Logout</span>
-                                </Button>
+                                <Link className="headerLink" to="/account" onClick={props.close}>
+                                    <Button size="large" color="inherit"><span className="headerBtn">Account</span></Button>
+                                </Link>
                                 :
                                 <Link className="headerLink" to="/login" onClick={props.close}>
                                     <Button size="large" color="inherit"><span className="headerBtn">Login</span></Button>
