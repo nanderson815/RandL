@@ -148,7 +148,6 @@ class App extends Component {
               close={this.handleCartClose}
               products={this.props.data.shop.products.edges}
               openCustomerAuth={this.openCustomerAuth}
-
             />
 
             <Route exact path="/"
