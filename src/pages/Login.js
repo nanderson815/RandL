@@ -161,32 +161,35 @@ class Cart extends Component {
                             <div className="error">{this.state.errorMessage}</div>
                         }
                         <form>
-                            {login ? null : <div><TextField
-                                id="outlined-first-input"
-                                style={{ width: "100%" }}
-                                label="First Name"
-                                type="test"
-                                value={first}
-                                name="first"
-                                margin="normal"
-                                variant="outlined"
-                                onChange={this.onChangeHandler}
-                            />
-                                <TextField
-                                    id="outlined-last-input"
-                                    style={{ width: "100%" }}
-                                    label="Last Name"
-                                    type="text"
-                                    value={last}
-                                    name="last"
-                                    margin="normal"
-                                    variant="outlined"
-                                    onChange={this.onChangeHandler}
-                                /> </div>}
+                            {login ? null :
+                                <div>
+                                    <TextField
+                                        id="outlined-first-input"
+                                        style={{ width: "90%" }}
+                                        label="First Name"
+                                        type="test"
+                                        value={first}
+                                        name="first"
+                                        margin="normal"
+                                        variant="outlined"
+                                        onChange={this.onChangeHandler}
+                                    />
+                                    <TextField
+                                        id="outlined-last-input"
+                                        style={{ width: "90%" }}
+                                        label="Last Name"
+                                        type="text"
+                                        value={last}
+                                        name="last"
+                                        margin="normal"
+                                        variant="outlined"
+                                        onChange={this.onChangeHandler}
+                                    />
+                                </div>}
 
                             <TextField
                                 id="outlined-email-input"
-                                style={{ width: "100%" }}
+                                style={{ width: "90%" }}
                                 label="Email"
                                 type="email"
                                 value={email}
@@ -198,7 +201,7 @@ class Cart extends Component {
                             />
                             <TextField
                                 id="outlined-password-input"
-                                style={{ width: "100%" }}
+                                style={{ width: "90%" }}
                                 label="Password"
                                 type="password"
                                 name="password"
