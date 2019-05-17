@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import ShoppingCartOutlined from '@material-ui/icons/ShoppingCartOutlined';
 import Grid from '@material-ui/core/Grid';
 import NavbarPanel from "./NavbarPanel";
+import NavDrawer from "./NavbarDrawer";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import { withRouter } from 'react-router-dom';
@@ -64,6 +65,8 @@ function NavBar(props) {
                             <Button size="large" color="inherit" onClick={props.toggle}>
                                 <span className="headerBtn">Shop {props.isOpen ? <ExpandLessIcon className="btnIcon" /> : <ExpandMoreIcon className="btnIcon" />}</span>
                             </Button>
+
+                            <NavDrawer />
 
                             <Link className="headerLink" to="/about" onClick={props.close}>
                                 <Button size="large" color="inherit"><span className="headerBtn">About</span></Button>

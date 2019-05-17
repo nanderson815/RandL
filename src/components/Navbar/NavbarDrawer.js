@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -20,12 +19,9 @@ const styles = {
     },
 };
 
-class TemporaryDrawer extends React.Component {
+class NavDrawer extends React.Component {
     state = {
-        top: false,
-        left: false,
-        bottom: false,
-        right: false,
+        left: false
     };
 
     toggleDrawer = (side, open) => () => {
@@ -41,28 +37,6 @@ class TemporaryDrawer extends React.Component {
             <div className={classes.list}>
                 <List>
                     {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-            </div>
-        );
-
-        const fullList = (
-            <div className={classes.fullList}>
-                <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
                         <ListItem button key={text}>
                             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                             <ListItemText primary={text} />
@@ -91,8 +65,8 @@ class TemporaryDrawer extends React.Component {
     }
 }
 
-TemporaryDrawer.propTypes = {
+NavDrawer.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(TemporaryDrawer);
+export default withStyles(styles)(NavDrawer);
