@@ -49,6 +49,26 @@ function NavBar(props) {
         navbarClass = classes.scrolled
     }
 
+    const mobileMenu =
+        <Grid item md className={classes.center}>
+            <NavDrawer />
+        </Grid>
+
+
+    const deskMenu =
+        <Grid item md className={classes.center}>
+            <Button size="large" color="inherit" onClick={props.toggle}>
+                <span className="headerBtn">Shop {props.isOpen ? <ExpandLessIcon className="btnIcon" /> : <ExpandMoreIcon className="btnIcon" />}</span>
+            </Button>
+
+            <Link className="headerLink" to="/about" onClick={props.close}>
+                <Button size="large" color="inherit"><span className="headerBtn">About</span></Button>
+            </Link>
+
+            <Link className="headerLink" to="/" onClick={props.close}>
+                <Button size="large" color="inherit"><span className="headerBtn">Home</span></Button>
+            </Link>
+        </Grid>
 
     return (
         <div>
@@ -61,21 +81,8 @@ function NavBar(props) {
                         container
                         spacing={24}
                     >
-                        <Grid item md className={classes.center}>
-                            <Button size="large" color="inherit" onClick={props.toggle}>
-                                <span className="headerBtn">Shop {props.isOpen ? <ExpandLessIcon className="btnIcon" /> : <ExpandMoreIcon className="btnIcon" />}</span>
-                            </Button>
 
-                            <NavDrawer />
-
-                            <Link className="headerLink" to="/about" onClick={props.close}>
-                                <Button size="large" color="inherit"><span className="headerBtn">About</span></Button>
-                            </Link>
-
-                            <Link className="headerLink" to="/" onClick={props.close}>
-                                <Button size="large" color="inherit"><span className="headerBtn">Home</span></Button>
-                            </Link>
-                        </Grid>
+                        {props.isMobile ? mobileMenu : deskMenu}
 
                         <Grid item md className={classes.center}>
                             <Link className="headerLink" to="/" onClick={props.close}>

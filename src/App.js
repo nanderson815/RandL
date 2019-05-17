@@ -28,6 +28,7 @@ class App extends Component {
 
     this.state = {
       isTop: true,
+      isMobile: false,
       isOpen: false,
       isCartOpen: false,
       isCustomerAuthOpen: false,
@@ -60,6 +61,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+    window.addEventListener("resize", () => {
+      let currentHideNav = (window.innerWidth <= 1076);
+      if (currentHideNav !== this.state.isMobile) {
+        this.setState({ isMobile: currentHideNav });
+      }
+    });
+
+
     document.addEventListener('scroll', () => {
       const isTop = window.scrollY < 25;
       if (isTop !== this.state.isTop) {
@@ -142,6 +151,7 @@ class App extends Component {
 
           <div>
             <Navbar
+              isMobile={this.state.isMobile}
               isTop={this.state.isTop}
               isOpen={this.state.isOpen}
               click={() => this.setState({ isCartOpen: true })}
