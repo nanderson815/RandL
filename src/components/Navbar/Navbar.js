@@ -50,62 +50,86 @@ function NavBar(props) {
     }
 
     const mobileMenu =
-        <Grid item md className={classes.center}>
-            <NavDrawer />
+        <Grid
+            justify="space-between"
+            alignItems="center"
+            direction="row"
+            container
+            spacing={24}
+        >
+            <Grid item md className={classes.center}>
+                <NavDrawer />
+            </Grid>
+
+            <Grid item md className={classes.center}>
+                <Link className="headerLink" to="/" onClick={props.close}>
+                    <img className={`${classes.inline} headerLogo`} src="./images/r6.png" alt="Rose and Liz Logo" />
+                </Link>
+            </Grid>
+
+            <Grid item md className={classes.center}>
+                <IconButton color="inherit" onClick={props.click}> <ShoppingCartOutlined /> </IconButton>
+            </Grid>
+
         </Grid>
 
 
-    const deskMenu =
-        <Grid item md className={classes.center}>
-            <Button size="large" color="inherit" onClick={props.toggle}>
-                <span className="headerBtn">Shop {props.isOpen ? <ExpandLessIcon className="btnIcon" /> : <ExpandMoreIcon className="btnIcon" />}</span>
-            </Button>
 
-            <Link className="headerLink" to="/about" onClick={props.close}>
-                <Button size="large" color="inherit"><span className="headerBtn">About</span></Button>
-            </Link>
+    const deskMenu = (
+        <Grid
+            justify="space-around"
+            alignItems="center"
+            direction="row"
+            container
+            spacing={24}
+        >
 
-            <Link className="headerLink" to="/" onClick={props.close}>
-                <Button size="large" color="inherit"><span className="headerBtn">Home</span></Button>
-            </Link>
+            <Grid item md className={classes.center}>
+                <Button size="large" color="inherit" onClick={props.toggle}>
+                    <span className="headerBtn">Shop {props.isOpen ? <ExpandLessIcon className="btnIcon" /> : <ExpandMoreIcon className="btnIcon" />}</span>
+                </Button>
+
+                <Link className="headerLink" to="/about" onClick={props.close}>
+                    <Button size="large" color="inherit"><span className="headerBtn">About</span></Button>
+                </Link>
+
+                <Link className="headerLink" to="/" onClick={props.close}>
+                    <Button size="large" color="inherit"><span className="headerBtn">Home</span></Button>
+                </Link>
+            </Grid>
+
+            <Grid item md className={classes.center}>
+                <Link className="headerLink" to="/" onClick={props.close}>
+                    <img className={`${classes.inline} headerLogo`} src="./images/r6.png" alt="Rose and Liz Logo" />
+                </Link>
+            </Grid>
+
+            <Grid item md className={classes.center}>
+
+                {authToken ?
+                    <Link className="headerLink" to="/account" onClick={props.close}>
+                        <Button size="large" color="inherit"><span className="headerBtn">Account</span></Button>
+                    </Link>
+                    :
+                    <Link className="headerLink" to="/login" onClick={props.close}>
+                        <Button size="large" color="inherit"><span className="headerBtn">Login</span></Button>
+                    </Link>
+                }
+
+                <IconButton color="inherit" onClick={props.click}> <ShoppingCartOutlined /> </IconButton>
+            </Grid>
         </Grid>
+
+    )
 
     return (
         <div>
             <AppBar className={`${navbarClass} navBar`} position="fixed">
                 <Toolbar>
-                    <Grid
-                        justify="space-around"
-                        alignItems="center"
-                        direction="row"
-                        container
-                        spacing={24}
-                    >
 
-                        {props.isMobile ? mobileMenu : deskMenu}
 
-                        <Grid item md className={classes.center}>
-                            <Link className="headerLink" to="/" onClick={props.close}>
-                                <img className={`${classes.inline} headerLogo`} src="./images/r6.png" alt="Rose and Liz Logo" />
-                            </Link>
-                        </Grid>
+                    {props.isMobile ? mobileMenu : deskMenu}
 
-                        <Grid item md className={classes.center}>
-
-                            {authToken ?
-                                <Link className="headerLink" to="/account" onClick={props.close}>
-                                    <Button size="large" color="inherit"><span className="headerBtn">Account</span></Button>
-                                </Link>
-                                :
-                                <Link className="headerLink" to="/login" onClick={props.close}>
-                                    <Button size="large" color="inherit"><span className="headerBtn">Login</span></Button>
-                                </Link>
-                            }
-
-                            <IconButton color="inherit" onClick={props.click}> <ShoppingCartOutlined /> </IconButton>
-                        </Grid>
-
-                    </Grid>
                 </Toolbar>
                 <NavbarPanel isOpen={props.isOpen} products={props.products} />
             </AppBar>
