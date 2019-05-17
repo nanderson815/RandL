@@ -61,11 +61,11 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.setNavbar();
+
+
     window.addEventListener("resize", () => {
-      let currentHideNav = (window.innerWidth <= 1076);
-      if (currentHideNav !== this.state.isMobile) {
-        this.setState({ isMobile: currentHideNav });
-      }
+      this.setNavbar();
     });
 
 
@@ -86,6 +86,13 @@ class App extends Component {
     createCheckout: PropTypes.func.isRequired,
     checkoutLineItemsAdd: PropTypes.func.isRequired,
     checkoutLineItemsUpdate: PropTypes.func.isRequired
+  }
+
+  setNavbar() {
+    let currentHideNav = (window.innerWidth <= 1076);
+    if (currentHideNav !== this.state.isMobile) {
+      this.setState({ isMobile: currentHideNav });
+    }
   }
 
   handleCartOpen() {
