@@ -9,14 +9,15 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import MenuIcon from "@material-ui/icons/Menu";
 
 const styles = {
     list: {
         width: 250,
     },
-    fullList: {
-        width: 'auto',
-    },
+    white: {
+        color: "white",
+    }
 };
 
 class NavDrawer extends React.Component {
@@ -48,8 +49,7 @@ class NavDrawer extends React.Component {
 
         return (
             <div>
-                <Button onClick={this.toggleDrawer('left', true)}>Open Left</Button>
-
+                <Button className={classes.white} onClick={this.toggleDrawer('left', true)}><MenuIcon /> </Button>
                 <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
                     <div
                         tabIndex={0}
