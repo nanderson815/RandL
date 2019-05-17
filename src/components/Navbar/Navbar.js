@@ -63,7 +63,7 @@ function NavBar(props) {
 
             <Grid item md className={classes.center}>
                 <Link className="headerLink" to="/" onClick={props.close}>
-                    <img className={`${classes.inline} headerLogo`} src="./images/r6.png" alt="Rose and Liz Logo" />
+                    <img className={`${classes.inline} headerLogoMobile`} src="./images/r6.png" alt="Rose and Liz Logo" />
                 </Link>
             </Grid>
 
