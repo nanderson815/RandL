@@ -155,7 +155,7 @@ class Cart extends Component {
                     style={{ minHeight: '75vh' }}
                 >
 
-                    <Grid item md={4}>
+                    <Grid item xs={11} md={4}>
                         <h1>{login ? "Login to your Account" : "Sign Up"}</h1>
                         {this.state.errorMessage &&
                             <div className="error">{this.state.errorMessage}</div>
