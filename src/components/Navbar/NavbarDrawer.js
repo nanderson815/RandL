@@ -9,7 +9,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import MenuIcon from "@material-ui/icons/Menu";
-
+import HomeIcon from "@material-ui/icons/Home";
+import PeopleIcon from '@material-ui/icons/People'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const styles = {
     list: {
@@ -37,19 +39,35 @@ class NavDrawer extends React.Component {
         const sideList = (
             <div className={classes.list}>
                 <List>
-                 
-                    <Link className="headerLink" to="/about" onClick={this.props.close}>
+
+                    <Link to="/shop">
                         <ListItem button>
-                            <ListItemIcon>  </ListItemIcon>
-                            <ListItemText primary="About" />
+                            <ListItemIcon>
+                                <ShoppingCartIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Shop" />
                         </ListItem>
                     </Link>
 
-                    <Link className="headerLink" to="/" onClick={this.props.close}>
+                    <Link to="/">
                         <ListItem button>
+                            <ListItemIcon>
+                                <HomeIcon />
+                            </ListItemIcon>
                             <ListItemText primary="Home" />
                         </ListItem>
                     </Link>
+
+                    <Link to="/about">
+                        <ListItem button>
+                            <ListItemIcon>
+                                <PeopleIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="About Us" />
+                        </ListItem>
+                    </Link>
+
+
                 </List>
             </div>
         );
@@ -57,9 +75,9 @@ class NavDrawer extends React.Component {
         return (
             <div>
                 <Button className={classes.white} onClick={this.toggleDrawer('left', true)}><MenuIcon /> </Button>
+
                 <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
                     <div
-                        tabIndex={0}
                         role="button"
                         onClick={this.toggleDrawer('left', false)}
                         onKeyDown={this.toggleDrawer('left', false)}

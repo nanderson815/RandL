@@ -60,6 +60,7 @@ function NavBar(props) {
             <Grid item md className={classes.center}>
                 <NavDrawer 
                 close={props.close}
+                authToken={authToken}
                 />
             </Grid>
 
