@@ -12,6 +12,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
 import PeopleIcon from '@material-ui/icons/People'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const styles = {
     list: {
@@ -35,6 +36,7 @@ class NavDrawer extends React.Component {
 
     render() {
         const { classes } = this.props;
+        console.log(this.props);
 
         const sideList = (
             <div className={classes.list}>
@@ -67,6 +69,26 @@ class NavDrawer extends React.Component {
                         </ListItem>
                     </Link>
 
+
+                    {this.props.authToken ?
+                        <Link to="/Account">
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <AccountCircleIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Account" />
+                            </ListItem>
+                        </Link>
+                        :
+                        <Link to="/login">
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <AccountCircleIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Login" />
+                            </ListItem>
+                        </Link>
+                    }
 
                 </List>
             </div>
