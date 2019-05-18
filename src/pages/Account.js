@@ -20,7 +20,7 @@ const Account = (props) => {
                     style={{ minHeight: '60vh' }}
                 >
 
-                    <Grid item>
+                    <Grid item xs={11}>
                         <h1>My Account</h1>
                         <Button
                             size="large"
@@ -32,6 +32,9 @@ const Account = (props) => {
                             <span className="headerBtn">
                                 Logout</span>
                         </Button>
+                    </Grid>
+                    <Grid item xs={11}>
+
                     </Grid>
 
                 </Grid>

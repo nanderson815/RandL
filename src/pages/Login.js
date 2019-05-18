@@ -58,12 +58,13 @@ class Cart extends Component {
         })
     }
 
-    handleSubmit(email, password, first, last) {
+    handleSubmit(e, email, password, first, last) {
+        e.preventDefault();
         this.resetErrorMessages();
         if (!this.state.login) {
-            this.createCustomerAccount(email, password, first, last)
+            this.createCustomerAccount(e, email, password, first, last)
         } else {
-            this.loginCustomerAccount(email, password)
+            this.loginCustomerAccount(e, email, password)
         }
     }
 
@@ -80,7 +81,7 @@ class Cart extends Component {
         });
     }
 
-    createCustomerAccount(email, password, first, last) {
+    createCustomerAccount(e, email, password, first, last) {
         const input = {
             email: email,
             password: password,
@@ -94,7 +95,7 @@ class Cart extends Component {
                 console.log(res)
                 if (res.data.customerCreate.customer) {
                     // this.props.showAccountVerificationMessage();
-                    this.loginCustomerAccount(email, password);
+                    this.loginCustomerAccount(e, email, password);
                 } else {
                     res.data.customerCreate.userErrors.forEach(function (error) {
                         if (error.field) {
@@ -111,7 +112,7 @@ class Cart extends Component {
             });
     }
 
-    loginCustomerAccount(email, password) {
+    loginCustomerAccount(e, email, password) {
         const input = {
             email: email,
             password: password
@@ -212,7 +213,7 @@ class Cart extends Component {
                                 onChange={this.onChangeHandler}
                             />
 
-                            <Button size="large" onClick={() => this.handleSubmit(email, password, first, last)}>
+                            <Button type="submit" size="large" onClick={(e) => this.handleSubmit(e, email, password, first, last)}>
                                 {login ? 'Login' : 'Create Account'}
                             </Button>
                             <Button size="large" onClick={() => this.setState({ login: !login })}>
