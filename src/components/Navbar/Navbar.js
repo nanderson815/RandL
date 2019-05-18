@@ -58,7 +58,9 @@ function NavBar(props) {
             spacing={24}
         >
             <Grid item md className={classes.center}>
-                <NavDrawer />
+                <NavDrawer 
+                close={props.close}
+                />
             </Grid>
 
             <Grid item md className={classes.center}>
