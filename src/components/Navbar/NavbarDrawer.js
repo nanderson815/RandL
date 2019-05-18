@@ -36,7 +36,6 @@ class NavDrawer extends React.Component {
 
     render() {
         const { classes } = this.props;
-        console.log(this.props);
 
         const sideList = (
             <div className={classes.list}>
