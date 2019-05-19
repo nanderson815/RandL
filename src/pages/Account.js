@@ -5,7 +5,21 @@ import { AUTH_TOKEN } from '../Constants';
 import { Redirect } from 'react-router';
 import gql from 'graphql-tag';
 
-const
+const GET_CUSTOMER_INFO = gql`
+query customer ($customerAccessToken: String!){
+    customer(customerAccessToken: $customerAccessToken) {
+    lastName
+    firstName
+    id
+    defaultAddress {
+      address1
+      address2
+      city
+      zip
+    }
+  }
+}
+`;
 
 
 
