@@ -15,6 +15,9 @@ const styles = theme => ({
         paddingTop: theme.spacing.unit * 2,
         paddingBottom: theme.spacing.unit * 2,
     },
+    margin: {
+        marginTop: theme.spacing.unit * 15
+    }
 });
 
 
@@ -74,12 +77,10 @@ query customer ($customerAccessToken: String!){
         return (
             <div>
                 <Grid
+                    className={classes.margin}
                     container
-                    spacing={0}
-                    direction="column"
                     alignItems="center"
                     justify="center"
-                    style={{ minHeight: '60vh' }}
                 >
 
                     <Grid item xs={11}>
@@ -95,7 +96,14 @@ query customer ($customerAccessToken: String!){
                                 Logout</span>
                         </Button>
                     </Grid>
-                    <Grid item xs={11}>
+
+                    <Grid item xs={11} md={8}>
+                        {customerInfo(sessionStorage.getItem(AUTH_TOKEN))}
+
+                    </Grid>
+
+
+                    <Grid item xs={11} md={4}>
                         {customerInfo(sessionStorage.getItem(AUTH_TOKEN))}
 
                     </Grid>
