@@ -34,8 +34,9 @@ query customer ($customerAccessToken: String!){
 
                 return (
                     <div>
-                        <h1>It worked.</h1>
-                        <p>{data.customer.firstName}</p>
+                        <h2>{data.customer.firstName}</h2>
+                        <h2>{data.customer.lastName}</h2>
+
                     </div>
                 );
             }}
