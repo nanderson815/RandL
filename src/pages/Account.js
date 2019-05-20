@@ -31,6 +31,19 @@ query customer ($customerAccessToken: String!){
     firstName
     id
     email
+    orders(first:10){
+      edges{
+        node{
+          orderNumber
+          totalPriceV2{
+            amount
+            currencyCode
+          }
+          processedAt
+          statusUrl
+        }
+      }
+    }
     defaultAddress {
       address1
       address2
