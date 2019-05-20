@@ -17,11 +17,13 @@ query customer ($customerAccessToken: String!){
     lastName
     firstName
     id
+    email
     defaultAddress {
       address1
       address2
       city
       zip
+      country
     }
   }
 }
@@ -32,10 +34,15 @@ query customer ($customerAccessToken: String!){
                 if (loading) return null;
                 if (error) return `Error! ${error}`;
 
+                console.log(data);
                 return (
                     <div>
-                        <h2>{data.customer.firstName}</h2>
-                        <h2>{data.customer.lastName}</h2>
+                        <h1>{data.customer.firstName} {data.customer.lastName}</h1>
+                        <h2>{data.customer.email}</h2>
+                        <h4>{data.customer.defaultAddress ? data.customer.defaultAddress.address1 : null}</h4>
+                        <h4>{data.customer.defaultAddress ? data.customer.defaultAddress.address2 : null}</h4>
+                        <h4>{data.customer.defaultAddress ? data.customer.defaultAddress.city : null}</h4>
+                        <h4>{data.customer.defaultAddress ? data.customer.defaultAddress.zip : null}</h4>
 
                     </div>
                 );
@@ -60,7 +67,6 @@ query customer ($customerAccessToken: String!){
                 >
 
                     <Grid item xs={11}>
-                        {customerInfo(sessionStorage.getItem(AUTH_TOKEN))}
                         <h1>My Account</h1>
                         <Button
                             size="large"
@@ -74,6 +80,7 @@ query customer ($customerAccessToken: String!){
                         </Button>
                     </Grid>
                     <Grid item xs={11}>
+                        {customerInfo(sessionStorage.getItem(AUTH_TOKEN))}
 
                     </Grid>
 
