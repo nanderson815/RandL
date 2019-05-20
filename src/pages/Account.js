@@ -22,6 +22,7 @@ query customer ($customerAccessToken: String!){
       address1
       address2
       city
+      province 
       zip
       country
     }
@@ -34,16 +35,21 @@ query customer ($customerAccessToken: String!){
                 if (loading) return null;
                 if (error) return `Error! ${error}`;
 
-                console.log(data);
+                let res = data.customer;
+                let address = data.customer.defaultAddress;
+
                 return (
                     <div>
-                        <h1>{data.customer.firstName} {data.customer.lastName}</h1>
-                        <h2>{data.customer.email}</h2>
-                        <h4>{data.customer.defaultAddress ? data.customer.defaultAddress.address1 : null}</h4>
-                        <h4>{data.customer.defaultAddress ? data.customer.defaultAddress.address2 : null}</h4>
-                        <h4>{data.customer.defaultAddress ? data.customer.defaultAddress.city : null}</h4>
-                        <h4>{data.customer.defaultAddress ? data.customer.defaultAddress.zip : null}</h4>
+                        <h1>{res.firstName} {res.lastName}</h1>
+                        <h2>{res.email}</h2>
+                        {address ?
+                            <div>
+                                <h3> {address.address1} </h3>
+                                <h3> {address.address2} </h3>
+                                <h3> {address.city}, {address.province} {address.zip} </h3>
+                            </div>
 
+                            : null}
                     </div>
                 );
             }}
