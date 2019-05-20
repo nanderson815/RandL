@@ -7,6 +7,7 @@ import gql from 'graphql-tag';
 import { Query } from "react-apollo";
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
 
 
 const styles = theme => ({
@@ -14,6 +15,7 @@ const styles = theme => ({
         ...theme.mixins.gutters(),
         paddingTop: theme.spacing.unit * 2,
         paddingBottom: theme.spacing.unit * 2,
+        margin: "0px 10px"
     },
     margin: {
         marginTop: theme.spacing.unit * 15
@@ -92,7 +94,7 @@ query customer ($customerAccessToken: String!){
                 <Grid
                     className={classes.margin}
                     container
-                    alignItems="center"
+                    // alignItems="center"
                     justify="center"
                 >
 
@@ -110,9 +112,9 @@ query customer ($customerAccessToken: String!){
                         </Button>
                     </Grid>
 
-                    <Grid item xs={11} md={8}>
-                        {customerInfo(sessionStorage.getItem(AUTH_TOKEN))}
-
+                    <Grid item xs={11} md={7}>
+                        <h1>Order History</h1>
+                        <Divider></Divider>
                     </Grid>
 
 
