@@ -5,11 +5,21 @@ import { AUTH_TOKEN } from '../Constants';
 import { Redirect } from 'react-router';
 import gql from 'graphql-tag';
 import { Query } from "react-apollo";
+import Paper from '@material-ui/core/Paper';
+import { withStyles } from '@material-ui/core/styles';
 
 
+const styles = theme => ({
+    root: {
+        ...theme.mixins.gutters(),
+        paddingTop: theme.spacing.unit * 2,
+        paddingBottom: theme.spacing.unit * 2,
+    },
+});
 
 
 const Account = (props) => {
+    const { classes } = props;
 
     const GET_CUSTOMER_INFO = gql`
 query customer ($customerAccessToken: String!){
@@ -39,7 +49,7 @@ query customer ($customerAccessToken: String!){
                 let address = data.customer.defaultAddress;
 
                 return (
-                    <div>
+                    <Paper elevation={1} className={classes.root}>
                         <h1>{res.firstName} {res.lastName}</h1>
                         <h2>{res.email}</h2>
                         {address ?
@@ -50,7 +60,7 @@ query customer ($customerAccessToken: String!){
                             </div>
 
                             : null}
-                    </div>
+                    </Paper>
                 );
             }}
         </Query>
@@ -103,4 +113,4 @@ query customer ($customerAccessToken: String!){
 
 
 
-export default Account;
+export default withStyles(styles)(Account);
