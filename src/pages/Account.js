@@ -8,6 +8,11 @@ import { Query } from "react-apollo";
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 
 const styles = theme => ({
@@ -43,6 +48,20 @@ query customer ($customerAccessToken: String!){
           }
           processedAt
           statusUrl
+          lineItems(first:250){
+            edges{
+              node{
+                quantity
+                title
+                variant{
+                  image{
+                    originalSrc
+                  }
+                  title
+                }
+              }
+            }
+          }
         }
       }
     }
