@@ -69,9 +69,7 @@ query customer ($customerAccessToken: String!){
                 return (
 
                     <Grid
-                        className={classes.margin}
                         container
-                        // alignItems="center"
                         justify="center"
                     >
                         <Grid item xs={11} sm={7}>
@@ -110,7 +108,8 @@ query customer ($customerAccessToken: String!){
                 <Grid
                     className={classes.margin}
                     container
-                    // alignItems="center"
+                    direction="column"
+                    alignItems="center"
                     justify="center"
                 >
 
