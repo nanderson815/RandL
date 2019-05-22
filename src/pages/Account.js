@@ -67,18 +67,20 @@ query customer ($customerAccessToken: String!){
                 let address = data.customer.defaultAddress;
 
                 return (
-                    <Paper elevation={1} className={classes.root}>
-                        <h1>{res.firstName} {res.lastName}</h1>
-                        <h2>{res.email}</h2>
-                        {address ?
-                            <div>
-                                <h3> {address.address1} </h3>
-                                <h3> {address.address2} </h3>
-                                <h3> {address.city}, {address.province} {address.zip} </h3>
-                            </div>
+                    <Grid item xs={11} md={4}>
+                        <Paper elevation={1} className={classes.root}>
+                            <h1>{res.firstName} {res.lastName}</h1>
+                            <h2>{res.email}</h2>
+                            {address ?
+                                <div>
+                                    <h3> {address.address1} </h3>
+                                    <h3> {address.address2} </h3>
+                                    <h3> {address.city}, {address.province} {address.zip} </h3>
+                                </div>
 
-                            : null}
-                    </Paper>
+                                : null}
+                        </Paper>
+                    </Grid>
                 );
             }}
         </Query>
@@ -115,13 +117,11 @@ query customer ($customerAccessToken: String!){
                     <Grid item xs={11} md={7}>
                         <h1>Order History</h1>
                         <Divider></Divider>
-                    </Grid>
-
-
-                    <Grid item xs={11} md={4}>
-                        {customerInfo(sessionStorage.getItem(AUTH_TOKEN))}
 
                     </Grid>
+
+
+                    {customerInfo(sessionStorage.getItem(AUTH_TOKEN))}
 
                 </Grid>
             </div>
