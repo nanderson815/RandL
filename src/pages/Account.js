@@ -67,19 +67,33 @@ query customer ($customerAccessToken: String!){
                 let address = data.customer.defaultAddress;
 
                 return (
-                    <Grid item xs={11} md={4}>
-                        <Paper elevation={1} className={classes.root}>
-                            <h1>{res.firstName} {res.lastName}</h1>
-                            <h2>{res.email}</h2>
-                            {address ?
-                                <div>
-                                    <h3> {address.address1} </h3>
-                                    <h3> {address.address2} </h3>
-                                    <h3> {address.city}, {address.province} {address.zip} </h3>
-                                </div>
 
-                                : null}
-                        </Paper>
+                    <Grid
+                        className={classes.margin}
+                        container
+                        // alignItems="center"
+                        justify="center"
+                    >
+                        <Grid item xs={11} sm={7}>
+                            <h1>Order History</h1>
+                            <Divider></Divider>
+
+                        </Grid>
+
+                        <Grid item xs={11} sm={4}>
+                            <Paper elevation={1} className={classes.root}>
+                                <h1>{res.firstName} {res.lastName}</h1>
+                                <h3>{res.email}</h3>
+                                {address ?
+                                    <div>
+                                        <h3> {address.address1} </h3>
+                                        <h3> {address.address2} </h3>
+                                        <h3> {address.city}, {address.province} {address.zip} </h3>
+                                    </div>
+
+                                    : null}
+                            </Paper>
+                        </Grid>
                     </Grid>
                 );
             }}
@@ -113,17 +127,13 @@ query customer ($customerAccessToken: String!){
                                 Logout</span>
                         </Button>
                     </Grid>
-
-                    <Grid item xs={11} md={7}>
-                        <h1>Order History</h1>
-                        <Divider></Divider>
-
-                    </Grid>
-
-
-                    {customerInfo(sessionStorage.getItem(AUTH_TOKEN))}
-
                 </Grid>
+
+
+
+
+                {customerInfo(sessionStorage.getItem(AUTH_TOKEN))}
+
             </div>
         )
     } else {
