@@ -23,7 +23,7 @@ const styles = theme => ({
         margin: "0px 10px"
     },
     margin: {
-        marginTop: theme.spacing.unit * 15
+        marginTop: theme.spacing.unit * 25
     }
 });
 
@@ -84,7 +84,9 @@ query customer ($customerAccessToken: String!){
 
                 let res = data.customer;
                 let address = data.customer.defaultAddress;
-                console.log(res.orders.edges);
+
+                const rows = res.orders.edges
+                console.log(rows);
 
                 return (
 
@@ -92,18 +94,46 @@ query customer ($customerAccessToken: String!){
                         container
                         justify="center"
                     >
-                        <Grid item xs={11} sm={7}>
+                        <Grid item xs={11} sm={8}>
                             <h1>Order History</h1>
                             <Divider></Divider>
                             {res.orders.edges.length <= 0 ?
                                 <h3>You have no recent orders.</h3>
-                                // Change below to display orders.
-                                : null}
+                                :
+                                <Table className={classes.table}>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>Order</TableCell>
+                                            <TableCell align="right">Date</TableCell>
+                                            <TableCell align="right">Status</TableCell>
+                                            <TableCell align="right">Total</TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {rows.map((row, index) => (
+                                            <TableRow key={index}>
+                                                <TableCell component="th" scope="row">
+                                                    {row.node.orderNumber}
+                                                </TableCell>
+                                                <TableCell align="right">
+                                                    {row.node.processedAt}
+                                                </TableCell>
+                                                <TableCell align="right">
+                                                    <a href={row.node.statusUrl}>Order Status</a>
+                                                </TableCell>
+                                                <TableCell align="right">
+                                                    ${row.node.totalPriceV2.amount}
+                                                </TableCell>
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            }
 
 
                         </Grid>
 
-                        <Grid item xs={11} sm={4}>
+                        <Grid item xs={11} sm={3}>
                             <Paper elevation={1} className={classes.root}>
                                 <h1>{res.firstName} {res.lastName}</h1>
                                 <h3>{res.email}</h3>
