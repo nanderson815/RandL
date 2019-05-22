@@ -103,8 +103,8 @@ query customer ($customerAccessToken: String!){
                                 <Table className={classes.table}>
                                     <TableHead>
                                         <TableRow>
-                                            <TableCell>Order</TableCell>
-                                            <TableCell align="right">Date</TableCell>
+                                            <TableCell>Order Number</TableCell>
+                                            <TableCell align="right">Order Date</TableCell>
                                             <TableCell align="right">Status</TableCell>
                                             <TableCell align="right">Total</TableCell>
                                         </TableRow>
@@ -113,16 +113,16 @@ query customer ($customerAccessToken: String!){
                                         {rows.map((row, index) => (
                                             <TableRow key={index}>
                                                 <TableCell component="th" scope="row">
-                                                    {row.node.orderNumber}
+                                                    <h3>{row.node.orderNumber}</h3>
                                                 </TableCell>
                                                 <TableCell align="right">
-                                                    {row.node.processedAt}
+                                                    <h3> {new Date(row.node.processedAt).getDay()}/{new Date(row.node.processedAt).getMonth()}/{new Date(row.node.processedAt).getFullYear()}</h3>
                                                 </TableCell>
                                                 <TableCell align="right">
-                                                    <a href={row.node.statusUrl}>Order Status</a>
+                                                    <h3><a href={row.node.statusUrl}>Order Status</a></h3>
                                                 </TableCell>
                                                 <TableCell align="right">
-                                                    ${row.node.totalPriceV2.amount}
+                                                    <h3>${row.node.totalPriceV2.amount}</h3>
                                                 </TableCell>
                                             </TableRow>
                                         ))}
