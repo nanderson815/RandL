@@ -65,6 +65,7 @@ query customer ($customerAccessToken: String!){
 
                 let res = data.customer;
                 let address = data.customer.defaultAddress;
+                console.log(res.orders.edges.length);
 
                 return (
 
@@ -75,6 +76,11 @@ query customer ($customerAccessToken: String!){
                         <Grid item xs={11} sm={7}>
                             <h1>Order History</h1>
                             <Divider></Divider>
+                            {res.orders.edges.length <= 0 ?
+                                <h3>You have no recent orders.</h3>
+                                // Change below to display orders.
+                                : null}
+
 
                         </Grid>
 
