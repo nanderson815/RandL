@@ -65,7 +65,7 @@ query customer ($customerAccessToken: String!){
 
                 let res = data.customer;
                 let address = data.customer.defaultAddress;
-                console.log(res.orders.edges.length);
+                console.log(res.orders.edges);
 
                 return (
 
