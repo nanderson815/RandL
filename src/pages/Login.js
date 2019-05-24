@@ -153,7 +153,7 @@ class Cart extends Component {
                     direction="column"
                     alignItems="center"
                     justify="center"
-                    style={{ minHeight: '75vh' }}
+                    style={{ minHeight: '100vh' }}
                 >
 
                     <Grid item xs={11} md={4}>
