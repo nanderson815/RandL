@@ -6,6 +6,7 @@ import Home from './pages/Home/Home';
 import Shop from './pages/Shop';
 import Login from './pages/Login';
 import Account from './pages/Account';
+import Footer from './components/Footer';
 import PropTypes from 'prop-types';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -220,6 +221,7 @@ class App extends Component {
           handleCartClose={this.handleCartClose}
           customerAccessToken={this.state.customerAccessToken}
         />
+        <Footer></Footer>
       </div>
     );
   }
