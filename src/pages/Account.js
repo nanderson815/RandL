@@ -30,6 +30,9 @@ const styles = theme => ({
     },
     table: {
         overflowX: 'auto',
+    },
+    font: {
+        fontSize: '2vh'
     }
 });
 
@@ -110,7 +113,7 @@ query customer ($customerAccessToken: String!){
                                     <Table>
                                         <TableHead>
                                             <TableRow>
-                                                <TableCell>Order Number</TableCell>
+                                                <TableCell className={classes.font}>Order Number</TableCell>
                                                 <TableCell align="right">Order Date</TableCell>
                                                 <TableCell align="right">Status</TableCell>
                                                 <TableCell align="right">Total</TableCell>
