@@ -16,14 +16,20 @@ import TableRow from '@material-ui/core/TableRow';
 
 
 const styles = theme => ({
+    page: {
+        minHeight: "73vh"
+    },
     root: {
         ...theme.mixins.gutters(),
         paddingTop: theme.spacing.unit * 2,
         paddingBottom: theme.spacing.unit * 2,
-        margin: "0px 10px"
+        margin: "10px",
     },
     margin: {
         marginTop: theme.spacing.unit * 25
+    },
+    table: {
+        overflowX: 'auto',
     }
 });
 
@@ -100,34 +106,36 @@ query customer ($customerAccessToken: String!){
                             {res.orders.edges.length <= 0 ?
                                 <h3>You have no recent orders.</h3>
                                 :
-                                <Table className={classes.table}>
-                                    <TableHead>
-                                        <TableRow>
-                                            <TableCell>Order Number</TableCell>
-                                            <TableCell align="right">Order Date</TableCell>
-                                            <TableCell align="right">Status</TableCell>
-                                            <TableCell align="right">Total</TableCell>
-                                        </TableRow>
-                                    </TableHead>
-                                    <TableBody>
-                                        {rows.map((row, index) => (
-                                            <TableRow key={index}>
-                                                <TableCell component="th" scope="row">
-                                                    <h3>{row.node.orderNumber}</h3>
-                                                </TableCell>
-                                                <TableCell align="right">
-                                                    <h3> {new Date(row.node.processedAt).getDay()}/{new Date(row.node.processedAt).getMonth()}/{new Date(row.node.processedAt).getFullYear()}</h3>
-                                                </TableCell>
-                                                <TableCell align="right">
-                                                    <h3><a href={row.node.statusUrl}>Order Status</a></h3>
-                                                </TableCell>
-                                                <TableCell align="right">
-                                                    <h3>${row.node.totalPriceV2.amount}</h3>
-                                                </TableCell>
+                                <div className={classes.table}>
+                                    <Table>
+                                        <TableHead>
+                                            <TableRow>
+                                                <TableCell>Order Number</TableCell>
+                                                <TableCell align="right">Order Date</TableCell>
+                                                <TableCell align="right">Status</TableCell>
+                                                <TableCell align="right">Total</TableCell>
                                             </TableRow>
-                                        ))}
-                                    </TableBody>
-                                </Table>
+                                        </TableHead>
+                                        <TableBody>
+                                            {rows.map((row, index) => (
+                                                <TableRow key={index}>
+                                                    <TableCell component="th" scope="row">
+                                                        <h3>{row.node.orderNumber}</h3>
+                                                    </TableCell>
+                                                    <TableCell align="right">
+                                                        <h3> {new Date(row.node.processedAt).getDay()}/{new Date(row.node.processedAt).getMonth()}/{new Date(row.node.processedAt).getFullYear()}</h3>
+                                                    </TableCell>
+                                                    <TableCell align="right">
+                                                        <h3><a href={row.node.statusUrl}>Order Status</a></h3>
+                                                    </TableCell>
+                                                    <TableCell align="right">
+                                                        <h3>${row.node.totalPriceV2.amount}</h3>
+                                                    </TableCell>
+                                                </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>
+                                </div>
                             }
 
 
@@ -159,7 +167,7 @@ query customer ($customerAccessToken: String!){
     if (authToken) {
 
         return (
-            <div>
+            <div className={classes.page}>
                 <Grid
                     className={classes.margin}
                     container
