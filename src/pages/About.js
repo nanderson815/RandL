@@ -1,13 +1,15 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
 
 const styles = theme => ({
     header: {
-        height: "75vh",
-        background: "url('/images/aboutHead1.jpg')",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "100%"
+        background: "#e0ede3",
+    },
+    headerFont: {
+        fontSize: "7rem",
+        fontFamily: "'Sacramento', cursive"
     }
 });
 
@@ -17,7 +19,17 @@ const About = (props) => {
     return (
         <div>
             <header className={classes.header}>
-
+                <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                    style={{ minHeight: '35vh' }}
+                >
+                    <Grid item>
+                        <h1 className={classes.headerFont}>Our Story</h1>
+                    </Grid>
+                </Grid>
             </header>
         </div>
     )
