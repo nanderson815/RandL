@@ -43,22 +43,52 @@ const About = (props) => {
             </header>
 
             <main>
+                {/* Grid #1 - Sisters and Best Friends */}
                 <Grid
                     container
                     spacing={0}
                     justify="center"
-                    style={{ minHeight: '35vh' }}
+                    alignItems="center"
+                    style={{ minHeight: '60vh' }}
                 >
                     <Grid item xs={11} md={5} className={classes.gridItem}>
                         <img alt="Kelly and Erin as children." style={{ maxWidth: "100%" }} src="/images/aboutHead1.jpg"></img>
                     </Grid>
 
                     <Grid item md={5} className={classes.gridItem + " " + classes.subFont} style={{ textAlign: "center" }}>
-                        <h1>About Us</h1>
+                        <h1 style={{ fontWeight: "600" }}>Sisters & Best Friends</h1>
+                        <hr style={{ border: "1px solid #bc8f8f", backgroundColor: "#bc8f8f", }}>
+                        </hr>
                         <h2>Twin sisters, Erin and Kelly, co-founded Rose & Liz after working corporate jobs for a few years after college
                             and finding that women were getting the short end of the stick in the laptop bag market.
                             Deciding that women deserved more than just skimpy laptop sleeves and pocket-less tote bags for work,
                             they set out to create their own vision of a practical, professional, and feminine work bag. </h2>
+                    </Grid>
+                </Grid>
+
+            {/* Grid #2 - Kelly */}
+                <Grid
+                    container
+                    spacing={0}
+                    justify="center"
+                    alignItems="center"
+                    style={{ minHeight: '60vh' }}
+                >
+                    <Grid item md={5} className={classes.gridItem + " " + classes.subFont} style={{ textAlign: "center" }}>
+                        <h1>Kelly E<strong>[liz]</strong>abeth Donovan</h1>
+                        <hr style={{ border: "1px solid #bc8f8f", backgroundColor: "#bc8f8f", }}>
+                        </hr>
+                        <h2>Kelly worked in the finance industry and also ran a successful social media influencer account focused 
+                            on local restaurant happy hours.  Encouraged by her successful website and social media platform, 
+                            she decided to take her talents to a new and bigger project.  
+                            Seeing the same gap in the laptop bag market that Erin did, she was inspired to solve the problem.  
+                            After suggesting they start a bag business, Kelly and Erin immediately got to work and Rose & Liz was born. </h2>
+                    </Grid>
+
+                    <Grid item xs={11} md={5} className={classes.gridItem}>
+                        <div style={{ maxHeight: "400px", width: "100%", overflow:"hidden" }}>
+                        <img alt="Kelly and Erin as children." src="/images/kellyD.jpg"></img>
+                        </div>
                     </Grid>
                 </Grid>
             </main>

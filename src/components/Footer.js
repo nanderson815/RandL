@@ -25,7 +25,7 @@ const Footer = (props) => {
 
             >
                 <Grid item>
-                    <h3 className={classes.text}>Copywrite Rose & Liz 2019</h3>
+                    <h3 className={classes.text}>Copyright Rose & Liz 2019</h3>
                 </Grid>
             </Grid>
         </footer>
