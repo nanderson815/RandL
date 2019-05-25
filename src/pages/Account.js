@@ -126,7 +126,7 @@ query customer ($customerAccessToken: String!){
                                                         <h3> {new Date(row.node.processedAt).getDay()}/{new Date(row.node.processedAt).getMonth()}/{new Date(row.node.processedAt).getFullYear()}</h3>
                                                     </TableCell>
                                                     <TableCell align="right">
-                                                        <h3><a href={row.node.statusUrl}>Order Status</a></h3>
+                                                        <h3><a target="_blank" href={row.node.statusUrl}>Order Status</a></h3>
                                                     </TableCell>
                                                     <TableCell align="right">
                                                         <h3>${row.node.totalPriceV2.amount}</h3>
