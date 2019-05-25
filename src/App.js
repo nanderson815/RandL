@@ -6,6 +6,7 @@ import Home from './pages/Home/Home';
 import Shop from './pages/Shop';
 import Login from './pages/Login';
 import Account from './pages/Account';
+import About from './pages/About';
 import Footer from './components/Footer';
 import PropTypes from 'prop-types';
 import { graphql, compose } from 'react-apollo';
@@ -207,6 +208,12 @@ class App extends Component {
               render={(props) => <Account {...props}
                 client={this.props.client}
                 data={this.props.data}
+              />}
+            />
+
+            <Route
+              exact path='/about'
+              render={(props) => <About {...props}
               />}
             />
           </div>
