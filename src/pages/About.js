@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import PageBreak from "../components/PageBreak";
 
 
 const styles = theme => ({
@@ -41,6 +42,8 @@ const About = (props) => {
                     </Grid>
                 </Grid>
             </header>
+
+            <PageBreak />
 
             <main>
                 {/* Grid #1 - Sisters and Best Friends */}
