@@ -3,6 +3,7 @@ import './Home.css';
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import Cart from '../../components/Cart';
+import PageBreak from "../../components/PageBreak";
 
 
 
@@ -46,6 +47,8 @@ const Home = (props) => {
 
                 </Grid>
             </header>
+
+            <PageBreak />
 
             <section className="section">
 
