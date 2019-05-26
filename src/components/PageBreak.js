@@ -6,9 +6,9 @@ const PageBreak = (props) => {
     return (
         <Grid
             container
-            spacing={0}
             justify="center"
             alignItems="center"
+            style={{ marginTop: "-25px" }}
         >
             <Grid item>
                 <img style={{ height: "50px", width: "auto" }} src="/images/rlSript.png" ></img>
