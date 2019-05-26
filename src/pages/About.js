@@ -75,7 +75,7 @@ const About = (props) => {
                     style={{ minHeight: '60vh', backgroundColor: "#f1f2f3" }}
                 >
                     <Grid item md={5} className={classes.gridItem + " " + classes.subFont} style={{ textAlign: "center" }}>
-                        <h1>Erin<strong>[Rose]</strong>Donovan</h1>
+                        <h1>Erin <strong>[Rose]</strong> Donovan</h1>
                         <hr style={{ border: "1px solid #bc8f8f", backgroundColor: "#bc8f8f", }}>
                         </hr>
                         <h2>Erin worked at a large consulting firm and traveled frequently for work.
