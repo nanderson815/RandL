@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import PropTypes from 'prop-types';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
+import Loading from './components/Loading/Loading';
 
 import {
   createCheckout,
@@ -143,7 +144,7 @@ class App extends Component {
 
   render() {
     if (this.props.data.loading) {
-      return <p>Loading ...</p>;
+      return <Loading></Loading>;
     }
     if (this.props.data.error) {
       return <p>{this.props.data.error.message}</p>;

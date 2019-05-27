@@ -11,7 +11,7 @@ const PageBreak = (props) => {
             style={{ marginTop: "-25px" }}
         >
             <Grid item>
-                <img style={{ height: "50px", width: "auto" }} src="/images/rlSript.png" ></img>
+                <img alt="a nice break" style={{ height: "50px", width: "auto" }} src="/images/rlSript.png" ></img>
             </Grid>
         </Grid>
     )

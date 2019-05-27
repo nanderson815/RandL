@@ -9,9 +9,10 @@ const Loading = () => {
             spacing={0}
             justify="center"
             alignItems="center"
+            style={{minHeight: "100vh"}}
         >
             <Grid item>
-                <img className="fe-pulse" atl="loding icon" src="/images/rlSript.png" style={{ height: "75px", width: "auto" }}></img>
+                <img className="fe-pulse" alt="loding icon" src="/images/rlSript.png" style={{ height: "75px", width: "auto" }}></img>
             </Grid>
         </Grid>
     )
