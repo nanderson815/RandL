@@ -13,6 +13,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Loading from '../components/Loading/Loading';
 
 
 const styles = theme => ({
@@ -85,7 +86,7 @@ query customer ($customerAccessToken: String!){
     const customerInfo = (token) => (
         <Query query={GET_CUSTOMER_INFO} variables={{ customerAccessToken: token.toString() }}>
             {({ loading, error, data }) => {
-                if (loading) return <h1>Loading</h1>;
+                if (loading) return <Loading></Loading>;
                 if (error) return `Error! ${error}`;
 
                 let res = data.customer;
