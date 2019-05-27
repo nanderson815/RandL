@@ -85,7 +85,7 @@ query customer ($customerAccessToken: String!){
     const customerInfo = (token) => (
         <Query query={GET_CUSTOMER_INFO} variables={{ customerAccessToken: token.toString() }}>
             {({ loading, error, data }) => {
-                if (loading) return null;
+                if (loading) return <h1>Loading</h1>;
                 if (error) return `Error! ${error}`;
 
                 let res = data.customer;
