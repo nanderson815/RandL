@@ -154,6 +154,17 @@ query customer ($customerAccessToken: String!){
                                     </div>
 
                                     : null}
+                                <br></br>
+                                <Button
+                                    size="large"
+                                    color="inherit"
+                                    onClick={() => {
+                                        sessionStorage.removeItem(AUTH_TOKEN);
+                                        props.history.push(`/`);
+                                    }}>
+                                    Logout
+                                </Button>
+                                <Button>Update Address</Button>
                             </Paper>
                         </Grid>
                     </Grid>
@@ -179,16 +190,6 @@ query customer ($customerAccessToken: String!){
 
                     <Grid item xs={11}>
                         <h1>My Account</h1>
-                        <Button
-                            size="large"
-                            color="inherit"
-                            onClick={() => {
-                                sessionStorage.removeItem(AUTH_TOKEN);
-                                props.history.push(`/`);
-                            }}>
-                            <span className="headerBtn">
-                                Logout</span>
-                        </Button>
                     </Grid>
                 </Grid>
 
