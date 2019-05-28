@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import PageBreak from "../components/PageBreak";
 
-
 const styles = theme => ({
     header: {
         background: "#f1f2f3",
