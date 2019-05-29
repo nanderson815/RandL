@@ -14,6 +14,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Loading from '../components/Loading/Loading';
+import AddressModal from '../components/AddressModal';
 
 
 const styles = theme => ({
@@ -164,7 +165,7 @@ query customer ($customerAccessToken: String!){
                                     }}>
                                     Logout
                                 </Button>
-                                <Button>Update Address</Button>
+                                <AddressModal></AddressModal>
                             </Paper>
                         </Grid>
                     </Grid>
