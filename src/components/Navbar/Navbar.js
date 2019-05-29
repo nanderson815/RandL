@@ -71,7 +71,7 @@ function NavBar(props) {
             </Grid>
 
             <Grid item md className={classes.center}>
-                <IconButton color="inherit" onClick={props.click}> <ShoppingCartOutlined /> </IconButton>
+                <IconButton color="inherit" onClick={props.click}> <ShoppingCartOutlined style={{ fontSize: 25 }} /> </IconButton>
             </Grid>
 
         </Grid>
@@ -119,7 +119,7 @@ function NavBar(props) {
                     </Link>
                 }
 
-                <IconButton color="inherit" onClick={props.click}> <ShoppingCartOutlined /> </IconButton>
+                <IconButton color="inherit" onClick={props.click}> <ShoppingCartOutlined style={{ fontSize: 25 }}/> </IconButton>
             </Grid>
         </Grid>
 

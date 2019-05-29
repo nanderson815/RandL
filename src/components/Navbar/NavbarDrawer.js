@@ -95,7 +95,7 @@ class NavDrawer extends React.Component {
 
         return (
             <div>
-                <Button className={classes.white} onClick={this.toggleDrawer('left', true)}><MenuIcon /> </Button>
+                <Button className={classes.white} onClick={this.toggleDrawer('left', true)}><MenuIcon style={{ fontSize: 25 }}/> </Button>
 
                 <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
                     <div
