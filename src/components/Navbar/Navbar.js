@@ -55,7 +55,7 @@ function NavBar(props) {
             alignItems="center"
             direction="row"
             container
-            spacing={24}
+            spacing={8}
         >
             <Grid item md className={classes.center}>
                 <NavDrawer 
@@ -84,7 +84,7 @@ function NavBar(props) {
             alignItems="center"
             direction="row"
             container
-            spacing={24}
+            spacing={8}
         >
 
             <Grid item md className={classes.center}>

@@ -27,7 +27,7 @@ function NavbarPanel(props) {
     return (
         <Collapse in={props.isOpen} >
             <div className={classes.root}>
-                <Grid className={classes.cont} container spacing={24}>
+                <Grid className={classes.cont} container spacing={8}>
                     <Grid item md={3} >
                         <h1 className={classes.text}>Featured</h1>
                         <img src={product ? product.images.edges[0].node.src : null} alt={product ? product.title : null} />
