@@ -47,7 +47,9 @@ const About = (props) => {
 
             <main>
                 {/* Grid #1 - Sisters and Best Friends */}
-                <Container>
+                <Container
+                    maxWidth="xl"
+                >
                     <Grid
                         container
                         spacing={0}
@@ -74,7 +76,7 @@ const About = (props) => {
                 {/* Grid #2 - Erin */}
                 <Container
                     maxWidth="xl"
-                    style={{ backgroundColor: "#f1f2f3"}}
+                    style={{ backgroundColor: "#f1f2f3" }}
                 >
                     <Grid
                         container
@@ -104,31 +106,35 @@ const About = (props) => {
                 </Container>
 
                 {/* Grid #2 - Kelly */}
-                <Grid
-                    container
-                    spacing={0}
-                    justify="center"
-                    alignItems="center"
-                    style={{ minHeight: '60vh' }}
+                <Container
+                    maxWidth="xl"
                 >
-                    <Grid item xs={11} md={5} className={classes.gridItem}>
-                        <div style={{ maxHeight: "400px", width: "100%", overflow: "hidden" }}>
-                            <img alt="Kelly and Erin as children." src="/images/kellyD.jpg"></img>
-                        </div>
-                    </Grid>
+                    <Grid
+                        container
+                        spacing={0}
+                        justify="center"
+                        alignItems="center"
+                        style={{ minHeight: '60vh' }}
+                    >
+                        <Grid item xs={11} md={5} className={classes.gridItem}>
+                            <div style={{ maxHeight: "400px", width: "100%", overflow: "hidden" }}>
+                                <img alt="Kelly and Erin as children." src="/images/kellyD.jpg"></img>
+                            </div>
+                        </Grid>
 
-                    <Grid item md={5} className={classes.gridItem + " " + classes.subFont} style={{ textAlign: "center" }}>
-                        <h1>Kelly E<strong>[liz]</strong>abeth Donovan</h1>
-                        <hr style={{ border: "1px solid #bc8f8f", backgroundColor: "#bc8f8f", }}>
-                        </hr>
-                        <h2>Kelly worked in the finance industry and also ran a successful social media influencer account focused
-                            on local restaurant happy hours.  Encouraged by her successful website and social media platform,
-                            she decided to take her talents to a new and bigger project.
-                            Seeing the same gap in the laptop bag market that Erin did, she was inspired to solve the problem.
+                        <Grid item md={5} className={classes.gridItem + " " + classes.subFont} style={{ textAlign: "center" }}>
+                            <h1>Kelly E<strong>[liz]</strong>abeth Donovan</h1>
+                            <hr style={{ border: "1px solid #bc8f8f", backgroundColor: "#bc8f8f", }}>
+                            </hr>
+                            <h2>Kelly worked in the finance industry and also ran a successful social media influencer account focused
+                                on local restaurant happy hours.  Encouraged by her successful website and social media platform,
+                                she decided to take her talents to a new and bigger project.
+                                Seeing the same gap in the laptop bag market that Erin did, she was inspired to solve the problem.
                             After suggesting they start a bag business, Kelly and Erin immediately got to work and Rose & Liz was born. </h2>
-                    </Grid>
+                        </Grid>
 
-                </Grid>
+                    </Grid>
+                </Container>
             </main>
         </div>
 
