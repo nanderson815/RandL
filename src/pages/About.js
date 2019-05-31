@@ -64,7 +64,7 @@ const About = (props) => {
                             she vented to her sister about the inequality and eventually channeled her frustration into product development."
                 ></AboutContainer>
 
-                {/* Grid #2 - Kelly */}
+                {/* Grid #3 - Kelly */}
                 <AboutContainer
                     imgSide="left"
                     alt="Kelly Donovan"
