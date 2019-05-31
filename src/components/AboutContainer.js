@@ -20,7 +20,7 @@ const AboutContainer = (props) => {
                     </Grid>
 
                     <Grid item md={6} className={classes.gridItem + " " + classes.subFont} style={{ textAlign: "center" }}>
-                        <h1 style={{ fontWeight: "600" }}>{title}</h1>
+                        {title}
                         <hr style={{ border: "1px solid #bc8f8f", backgroundColor: "#bc8f8f", }}>
                         </hr>
                         <h2>{desc}</h2>
@@ -41,7 +41,7 @@ const AboutContainer = (props) => {
                 style={{ minHeight: '60vh', backgroundColor: "#f1f2f3" }}
             >
                 <Grid item md={6} className={classes.gridItem + " " + classes.subFont} style={{ textAlign: "center" }}>
-                    <h1>{title}</h1>
+                    {title}
                     <hr style={{ border: "1px solid #bc8f8f", backgroundColor: "#bc8f8f", }}>
                     </hr>
                     <h2>{desc}</h2>
