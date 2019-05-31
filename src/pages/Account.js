@@ -23,12 +23,12 @@ const styles = theme => ({
     },
     root: {
         ...theme.mixins.gutters(),
-        paddingTop: theme.spacing.unit * 2,
-        paddingBottom: theme.spacing.unit * 2,
+        paddingTop: theme.spacing(2),
+        paddingBottom: theme.spacing(2),
         margin: "10px",
     },
     margin: {
-        marginTop: theme.spacing.unit * 25
+        marginTop: theme.spacing(25)
     },
     table: {
         overflowX: 'auto',
