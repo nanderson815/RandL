@@ -2,7 +2,6 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import PageBreak from "../components/PageBreak";
-import Container from '@material-ui/core/Container';
 import AboutContainer from '../components/AboutContainer';
 
 const styles = theme => ({
