@@ -14,7 +14,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Loading from '../components/Loading/Loading';
-import AddressModal from '../components/AddressModal';
+import AddressModal from '../components/AddressModal/AddressModal';
 
 
 const styles = theme => ({
