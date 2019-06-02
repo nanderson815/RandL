@@ -58,7 +58,7 @@ function SimpleModal() {
                         Text in a modal</Typography>
                     <Typography variant="subtitle1" id="simple-modal-description">
                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</Typography>
-                    <Button onClick={handleClose}>Update</Button>
+                    <Button onClick={handleClose}>Close</Button>
                 </div>
             </Modal>
         </div>
