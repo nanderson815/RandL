@@ -134,7 +134,7 @@ function NavBar(props) {
                     {props.isMobile ? mobileMenu : deskMenu}
 
                 </Toolbar>
-                <NavbarPanel isOpen={props.isOpen} products={props.products} />
+                <NavbarPanel isOpen={props.isOpen} products={props.products} close={props.close} />
             </AppBar>
         </div >
     );
