@@ -24,6 +24,7 @@ function NavbarPanel(props) {
     const { classes } = props;
 
     const product = props.products[0].node;
+    console.log(product);
     return (
         <Collapse in={props.isOpen} >
             <div className={classes.root}>
@@ -33,6 +34,7 @@ function NavbarPanel(props) {
                     <Grid item md={3} >
                         <h2 className={classes.text}>{product ? product.title : null}</h2>
                         <img src={product ? product.images.edges[0].node.src : null} alt={product ? product.title : null} />
+                        <h3 className={classes.text}>{product ? product.description : null}</h3>
                     </Grid>
                 </Grid>
             </div>

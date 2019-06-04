@@ -249,6 +249,7 @@ const query = gql`
           node {
             id
             title
+            description 
             options {
               id
               name
