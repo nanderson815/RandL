@@ -27,13 +27,12 @@ function NavbarPanel(props) {
     return (
         <Collapse in={props.isOpen} >
             <div className={classes.root}>
+                <h1 className={classes.text}>Our Bags</h1>
+                <hr></hr>
                 <Grid className={classes.cont} container spacing={8}>
                     <Grid item md={3} >
-                        <h1 className={classes.text}>Featured</h1>
-                        <img src={product ? product.images.edges[0].node.src : null} alt={product ? product.title : null} />
                         <h2 className={classes.text}>{product ? product.title : null}</h2>
-
-
+                        <img src={product ? product.images.edges[0].node.src : null} alt={product ? product.title : null} />
                     </Grid>
                 </Grid>
             </div>
