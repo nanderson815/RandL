@@ -18,6 +18,12 @@ const styles = theme => ({
     },
     cont: {
         margin: "0"
+    },
+    image: {
+        maxHeight: "275px",
+        marginLeft: "auto",
+        marginRight: "auto",
+        display: "block"
     }
 });
 
@@ -25,10 +31,10 @@ function NavbarPanel(props) {
     const { classes, close } = props;
 
     const products = props.products.slice(0, 2).map((product, index) =>
-        <Grid item md={3} key={index}>
+        <Grid item md={4} key={index}>
             <Link to="/shop" onClick={close} style={{ textDecoration: 'none' }}>
                 <h2 className={classes.text}>{product ? product.node.title : null}</h2>
-                <img src={product ? product.node.images.edges[0].node.src : null} alt={product ? product.node.title : null} />
+                <img className={classes.image}  src={product ? product.node.images.edges[0].node.src : null} alt={product ? product.node.title : null} />
                 <h3 className={classes.text}>{product ? product.node.description : null}</h3>
             </Link>
         </Grid>
