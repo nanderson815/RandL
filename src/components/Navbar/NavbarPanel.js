@@ -50,7 +50,7 @@ function NavbarPanel(props) {
 
                     {products}
 
-                    <Grid item md={4}>
+                    <Grid item md={3}>
                         <h1 className={classes.text}>We have more bags in the works! Stay tuned for more of our desings.</h1>
                         <br></br>
                         <h2 className={classes.text}>Yours Truly,</h2>
