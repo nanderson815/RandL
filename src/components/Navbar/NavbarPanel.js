@@ -34,7 +34,7 @@ function NavbarPanel(props) {
         <Grid item md={4} key={index}>
             <Link to="/shop" onClick={close} style={{ textDecoration: 'none' }}>
                 <h2 className={classes.text}>{product ? product.node.title : null}</h2>
-                <img className={classes.image}  src={product ? product.node.images.edges[0].node.src : null} alt={product ? product.node.title : null} />
+                <img className={classes.image} src={product ? product.node.images.edges[0].node.src : null} alt={product ? product.node.title : null} />
                 <h3 className={classes.text}>{product ? product.node.description : null}</h3>
             </Link>
         </Grid>
@@ -46,9 +46,16 @@ function NavbarPanel(props) {
             <div className={classes.root}>
                 <br></br>
                 <h1 className={classes.text}>Our Bags</h1>
-                <Grid className={classes.cont} container spacing={8}>
+                <Grid className={classes.cont} container spacing={2}>
 
                     {products}
+
+                    <Grid item md={4}>
+                        <h1 className={classes.text}>We have more bags in the works! Stay tuned for more of our desings.</h1>
+                        <br></br>
+                        <h2 className={classes.text}>Yours Truly,</h2>
+                        <img className={classes.image} style={{ height: "40px", width: "auto" }} src="/images/rlSript.png"></img>
+                    </Grid>
 
                 </Grid>
             </div>
