@@ -35,7 +35,7 @@ function NavbarPanel(props) {
             <Link to="/shop" onClick={close} style={{ textDecoration: 'none' }}>
                 <h2 className={classes.text}>{product ? product.node.title : null}</h2>
                 <img className={classes.image} src={product ? product.node.images.edges[0].node.src : null} alt={product ? product.node.title : null} />
-                <h3 className={classes.text}>{product ? product.node.description : null}</h3>
+                <h2 className={classes.text}>{product ? product.node.description : null}</h2>
             </Link>
         </Grid>
     )
