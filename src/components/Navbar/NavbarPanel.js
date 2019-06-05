@@ -54,7 +54,7 @@ function NavbarPanel(props) {
                         <h1 className={classes.text}>We have more bags in the works! Stay tuned for more of our desings.</h1>
                         <br></br>
                         <h2 className={classes.text}>Yours Truly,</h2>
-                        <img className={classes.image} style={{ height: "40px", width: "auto" }} src="/images/rlSript.png"></img>
+                        <img alt="rose and liz signature" className={classes.image} style={{ height: "40px", width: "auto" }} src="/images/rlSript.png"></img>
                     </Grid>
 
                 </Grid>
