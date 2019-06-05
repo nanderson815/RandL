@@ -24,22 +24,25 @@ const styles = theme => ({
 function NavbarPanel(props) {
     const { classes, close } = props;
 
-    const product = props.products[0].node;
-    console.log(product);
+    const products = props.products.slice(0, 2).map((product, index) =>
+        <Grid item md={3} key={index}>
+            <Link to="/shop" onClick={close} style={{ textDecoration: 'none' }}>
+                <h2 className={classes.text}>{product ? product.node.title : null}</h2>
+                <img src={product ? product.node.images.edges[0].node.src : null} alt={product ? product.node.title : null} />
+                <h3 className={classes.text}>{product ? product.node.description : null}</h3>
+            </Link>
+        </Grid>
+    )
+
+
     return (
         <Collapse in={props.isOpen} >
             <div className={classes.root}>
+                <br></br>
                 <h1 className={classes.text}>Our Bags</h1>
-                <hr></hr>
                 <Grid className={classes.cont} container spacing={8}>
 
-                    <Grid item md={3} >
-                        <Link to="/shop" onClick={close} style={{ textDecoration: 'none' }}>
-                            <h2 className={classes.text}>{product ? product.title : null}</h2>
-                            <img src={product ? product.images.edges[0].node.src : null} alt={product ? product.title : null} />
-                            <h3 className={classes.text}>{product ? product.description : null}</h3>
-                        </Link>
-                    </Grid>
+                    {products}
 
                 </Grid>
             </div>
