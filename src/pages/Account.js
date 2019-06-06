@@ -141,6 +141,7 @@ query customer ($customerAccessToken: String!){
                             }
 
                             <Button
+                                className="button"
                                 size="large"
                                 color="inherit"
                                 onClick={() => {
