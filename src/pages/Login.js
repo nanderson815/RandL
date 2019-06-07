@@ -38,6 +38,10 @@ const customerAccessTokenCreate = gql`
   }
 `;
 
+// const checkoutShippingAddress = gql`
+
+// `;
+
 
 class Cart extends Component {
 
@@ -50,6 +54,9 @@ class Cart extends Component {
         errorMessage: null
     }
 
+    componentDidMount(){
+        console.log(this.props.checkout)
+    }
 
     onChangeHandler = (e) => {
         let field = e.target.name

@@ -198,6 +198,7 @@ class App extends Component {
             <Route
               exact path="/login"
               render={(props) => <Login {...props}
+                checkout={this.state.checkout}
                 associateCustomerCheckout={this.associateCustomerCheckout}
                 showAccountVerificationMessage={this.showAccountVerificationMessage}
               />}
