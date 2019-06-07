@@ -38,9 +38,27 @@ const customerAccessTokenCreate = gql`
   }
 `;
 
-// const checkoutShippingAddress = gql`
-
-// `;
+const checkoutShippingAddress = gql`
+mutation checkoutShippingAddressUpdateV2($shippingAddress: MailingAddressInput!, $checkoutId: ID!) {
+  checkoutShippingAddressUpdateV2(shippingAddress: $shippingAddress, checkoutId: $checkoutId) {
+    userErrors {
+      field
+      message
+    }
+    checkout {
+      id
+      shippingAddress {
+        firstName
+        lastName
+        address1
+        province
+        country
+        zip
+      }
+    }
+  }
+}
+`;
 
 
 class Cart extends Component {
@@ -54,7 +72,7 @@ class Cart extends Component {
         errorMessage: null
     }
 
-    componentDidMount(){
+    componentDidMount() {
         console.log(this.props.checkout)
     }
 
